@@ -1,0 +1,34 @@
+#menu {
+	float: left;
+	width: 150px;
+}
+
+#menu ul {
+	list-style: none;
+}
+
+#menu li {
+	display: block;
+	border: 1px solid #FFF;
+	background-color: #DDD;
+	padding: 3px;
+}
+
+#menu a {
+	text-decoration: none;
+	color: #0277AC;
+}
+
+#menu li.boxLink {
+	border: 1px solid #00BAD6;
+	background-color: #EFEFEF;
+	cursor: pointer;
+}
+
+#menu li.boxLink a{
+	color: #00BAD6;
+}
+
+#menu li.current {
+	border: 1px solid #00BAD6;
+}

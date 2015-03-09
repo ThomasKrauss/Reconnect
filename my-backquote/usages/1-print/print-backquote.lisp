@@ -1,0 +1,36 @@
+("Backquote and comma but comma-dot and comma-atsign too"
+ ("No change"
+  (string= "test" (print-backquote "test"))
+  (string= "\"test\"" (print-backquote "\"test\""))
+  (string= "(test 1 2)" (print-backquote "(test 1 2)"))
+  (string= "\"(test 1 2)\"" (print-backquote "\"(test 1 2)\"")))
+ ("Simple backquoting"
+  (string= (print-backquote "(backquote x)")
+           "`x")
+  (string= (print-backquote "(backquote (1+ x))")
+           "`(1+ x)"))
+ ("In front of an atom"
+  (string= (print-backquote "(defmacro mac (expr)
+  (with-gensyms (s)
+    (backquote (with-output-to-string ((#:comma s))
+                 (pprint (macroexpand-1 '(#:comma-atsign expr))
+                         (#:comma-dot s))))))")
+           "(defmacro mac (expr)
+  (with-gensyms (s)
+    `(with-output-to-string (,s)
+                 (pprint (macroexpand-1 ',@expr)
+                         ,.s))))"))
+ ("In front of a list"
+  (string= (print-backquote "(defmacro mac (expr)
+  (with-gensyms (s)
+    (backquote (with-output-to-string ((#:comma (first (list s))))
+                 (pprint (macroexpand-1 '(#:comma-atsign (last expr)))
+                         (#:comma-dot (first (list s))))))))")
+           "(defmacro mac (expr)
+  (with-gensyms (s)
+    `(with-output-to-string (,(first (list s)))
+                 (pprint (macroexpand-1 ',@(last expr))
+                         ,.(first (list s))))))"))
+ ("Several levels of commas and backquotes"
+  (string= (print-backquote "(backquote (backquote (#:comma (#:comma-atsign test))))")
+           "``,,@test")))

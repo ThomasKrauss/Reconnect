@@ -1,0 +1,41 @@
+; multiple line comment, no parentheses
+(string= (cl-format "(defun test (x)
+#| This is a bigger documentation string.
+I want to say much more things here! |#
+(+ x 2))")
+         "(defun test (x)
+    #| This is a bigger documentation string.
+I want to say much more things here! |#
+    (+ x 2))")
+
+; multiple line comment, no parentheses
+(string= (cl-format "(defun test (x)
+#| This is a bigger documentation string.
+I want to say much more things here!
+Like (test 4) gives 6. |#
+(+ x 2))")
+         "(defun test (x)
+    #| This is a bigger documentation string.
+I want to say much more things here!
+Like (test 4) gives 6. |#
+    (+ x 2))")
+
+; multiple-line -> end a symbol, "declare" another comment on a comment line?
+
+; sharp-quote syntax with a function name
+(string= (cl-format "(defun toto (lst)
+(remove-if #'null
+lst))")
+         "(defun toto (lst)
+    (remove-if #'null
+               lst))")
+
+; sharp-quote syntax with a lambda form
+(string= (cl-format "(defun toto (lst)
+(remove-if #'(lambda (x)
+(null x))
+lst))")
+         "(defun toto (lst)
+    (remove-if #'(lambda (x)
+                     (null x))
+               lst))")

@@ -1,0 +1,58 @@
+Installation
+------------
+* make a how to
+* minimal install
+* working external program checker (on interpreter)
+! some exceptions -> to document in the minimal install
+* end product about external programs?
+* try to replace them with pure Lisp functions?
+
+Code editor
+-----------
+* probably bugs and shortcomings
+* strengthen links between code, tests and docs
+
+Tests
+-----
+* presentation in text flow?
+* the debugger can probably simplify the writing of tests
+-> step by step is like using 'and'
+-> testing multiple things is just enumerating them
+* probably need to make tests systems for very specific routines that only helps for writing tests
+* need to include checks about web-results and web-editors too!
+
+Web results and editors workflow
+--------------------------------
+* JS and CSS generation, concat, minif. A whole process to unveil.
+* Various dynamic level for components: pretty raw with lots of 'hard-coded' stuff (hard-coded makes less sense when the code is generated) up to fully dynamic components with lively configuration
+
+Sharing
+-------
+* a lib must be loaded for any analysis to be done. Absolute blindness when it is not. But can't load every possible system each time...
+* a lib is either in or out. But the project is to be meaningful on a personal level, not on a community level.
+-> there's specific and common resources for *one* developper: its various end products and its libraries.
+-> there's specific and common resources for developpers: specific = the project as it is for each developer, common = that is shared by every one.
+-> rather than set up a way to share, which will be prescriptive no matter what, maybe unveiling a specific diff on the whole project so that any two developers can compare and choose what they want, when they want.
+-> the particular interests, time commitment (either in volume or regularity), and amount of social interactions toward other developers of a given developer should never question his own ability to incorporate the variations others have done. It will require more or less work but that's up to him. Which is not to say he will necessarily be alone in doing that anyway. Learning is maybe a life-long process but at thirty, I sure have already had days and days of not learning much. I prefer to say learning is a process that should be initiated or resumed at any point in life.
+-> individuals are unquestionably free. Wherever their life is going on, that's of no concern to anybody else. It can end up that someone come back after years. So what? The basic idea is not to try fighting for freedom since it is pretty much already ensured. It is to fight for the intellectual independence of developers and I think that this implies to ensure that anyone should be able to choose when to reconnect on anything and also to have resources to help deciding what to take and what to leave.
+-> no need to stay up-to-date, following the hype. If something makes sense now, it should make sense later on. Even in years. While it is possible it won't, that just means it's probably not science, neither was it interesting in the first place. The degree of triviality of the matter is how it stands the test of time, not how anyone judged it individually or among a community.
+-> the work of scientifics brings less trivial things, whether the scientifics doing the work want it, aim for it or don't care at all
+-> the work of enginneers is dependant on narrow concerns, in time, scope and sharing interests deeply linked to their employer.
+-> Not sure open source would mean the same thing when computers will be able to do more on the source code than our current binary situation: display it in shiny colors or run the whole. If computers can take a source code and unveil structures, results and differences to other source codes, either in the structures and in the results, so that any individual could have a better grasp of it, I am not sure of what that would mean. A key point will probably be the needed qualification of the person. If it is not necessary to be much of a programmer to understand a whole system, that would pretty much change what it means to be a programmer and what an IT company means.
+
+Misc
+----
+* fix the pomodoro app
+* backup only works on Windows -> maybe in JS?
+* backup end product?
+
+Concepts
+--------
+* my-systems: layout and code identification -> possible link with text-flow
+* text-flow, for doc -> maybe for tests too! Explain typo and all.
+* document let-a and alet-fsm
+* identify the various parsers: replacement of :backquote by `, line counting, formatting, parsing dependencies and debugging (compute and layout)
+* actions qualifiers and the notion of end products
+* web-results and resources, same with web-editors
+* architecture of the watcher: where is it? the core and the rest watcher, how resource are being listen to (+ doc how to request them with depth and all), hard-coded configuration per system
+* HTML generation: use doc on HTML, then explanation about CSS and JS

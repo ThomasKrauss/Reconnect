@@ -1,0 +1,41 @@
+("with-gensyms prevent unwanted variables capture"
+ ("Example of a variable capture"
+  (= (let ((my-plist '(:test 0))
+           (x 10))
+       (macrolet ((capture-x (key val &body body)
+                    `(let ((x (1+ ,val)))
+                       (setf (getf my-plist ,key) x)
+                       ,@body)))
+         (capture-x :test 30
+                    x)))
+     31)
+  (equal (let ((my-plist '(:test 0))
+               (x 10))
+           (macrolet ((capture-x (key val &body body)
+                        `(let ((x (1+ ,val)))
+                           (setf (getf my-plist ,key) x)
+                           ,@body)))
+             (capture-x :test 30
+                        my-plist)))
+         '(:test 31)))
+ ("Avoiding the capture"
+  (= (let ((my-plist '(:test 0))
+           (x 10))
+       (macrolet ((capture-x (key val &body body)
+                    (with-gensyms (x)
+                                  `(let ((,x (1+ ,val)))
+                                     (setf (getf my-plist ,key) ,x)
+                                     ,@body))))
+         (capture-x :test 30
+                    x)))
+     10)
+  (equal (let ((my-plist '(:test 0))
+               (x 10))
+           (macrolet ((capture-x (key val &body body)
+                        (with-gensyms (x)
+                                      `(let ((,x (1+ ,val)))
+                                         (setf (getf my-plist ,key) ,x)
+                                         ,@body))))
+             (capture-x :test 30
+                        my-plist)))
+         '(:test 31))))

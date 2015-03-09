@@ -1,0 +1,207 @@
+@font-face {
+	font-family: 'Anonymous';
+	src: url(/fonts/Anonymous-Pro.ttf);
+}
+
+@font-face {
+	font-family: 'Anonymous';
+	font-weight: bold;
+	src: url(/fonts/Anonymous-Pro-B.ttf);
+}
+
+
+
+.doc {
+	list-style: none;
+}
+
+.doc > li {
+	margin: 30px 0 15px;
+}
+
+.doc .actionName {
+	font-weight: bold;
+}
+
+.doc .signature {
+	margin-left: 20px;
+	font-style: italic;
+}
+
+.doc .summary {
+	margin-left: 20px;
+}
+
+
+
+
+body, .pure-g, .pure-g [class *="pure-u"] {
+	background-color: #002b30;
+	color: #839496;
+	font-family: 'Anonymous';
+}
+
+#layout {
+    left: 0;
+    padding-left: 300px;
+	position: relative;
+}
+
+#menu {
+    background-color: #657b83;
+	border: none;
+	color: #333;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    width: 300px;
+    z-index: 10;
+}
+
+#menu a {
+	color: #333;
+	font-size: 1.2em;
+	text-decoration: none;
+	display: inline-block;
+}
+
+#menu > a {
+	text-align: center;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	width: 100%;
+	padding: 0.5em 0;
+	border-bottom: solid 1px #aaa;
+}
+
+#menu > a:hover {
+	color: #ddd;
+}
+
+#menu ul {
+	list-style: none;
+	margin: 0 0 0 2em;
+	padding: 0;
+}
+
+#menu li {
+	margin: 0.5em 0;
+	padding: 0.5em 0;
+	cursor: pointer;
+}
+
+#menu li:hover {
+	background-color: #aaa;
+}
+
+#menu li.no-hover:hover {
+	background-color: #657b83;
+}
+
+#menu a.selected  {
+	background-color: #ddd;
+}
+
+#links {
+	bottom: 0;
+	position: absolute;
+}
+
+#infos {
+	letter-spacing: normal;
+}
+
+#main1 {
+	background-color: transparent;
+	height: 100%;
+}
+
+#main2 {
+	background-color: transparent;
+	height: 100%;
+}
+
+
+#tasks ul {
+	margin: 0;
+	padding: 0;
+}
+
+#tasks li {
+	margin: 0;
+	padding: 0;
+}
+
+/*
+	Usages styles
+*/
+div.usage {
+	display: inline;
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+div.usage span {
+	border: none;
+	margin: 0 3px;
+}
+
+.ok {
+	color: #859900;
+}
+
+.error {
+	color: #dc322f;
+}
+
+.warning {
+	color: #b58900;
+}
+
+
+/* Colors */
+.error .ui-icon {
+	display: inline-block;
+}
+
+.usage {
+	border: 5px solid #002b36;
+}
+
+.errorBox {
+	border: 5px solid #FF6A6A;
+}
+
+.validBox{
+	border: 5px solid #ADFF2F;
+}
+
+.editor {
+	background-color: transparent;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.editor  li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* EC editable chunks */
+.CodeMirror-wrap {
+	margin-top: 0;
+	width: 100%;
+}
+
+.CodeMirror-scroll {
+	height: auto;
+	overflow: visible;
+}
+
+.CodeMirror pre.CodeMirror-cursor {
+	border-left: 1px solid #cb4b16;
+}

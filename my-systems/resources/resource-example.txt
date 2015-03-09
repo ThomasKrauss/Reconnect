@@ -1,0 +1,1 @@
+A resource hold whatever is needed. It can be any file, not just a text file.

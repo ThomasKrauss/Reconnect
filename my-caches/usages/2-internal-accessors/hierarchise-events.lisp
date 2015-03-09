@@ -1,0 +1,15 @@
+(""
+ (with-cache-example
+  (:initialize nil)
+  (equal (hierarchise-events cache-name '((:update :alpha ("alpha1"))
+                                          (:delete :gamma ("alpha1" "beta1" "gamma1"))
+                                          (:add :beta ("alpha2" "beta4"))
+                                          (:delete :alpha ("alpha3"))
+                                          (:update :gamma ("alpha2" "beta1" "gamma1"))
+                                          (:update :beta ("alpha1" "beta4"))))
+         '(((:delete :gamma ("alpha1" "beta1" "gamma1"))
+            (:update :gamma ("alpha2" "beta1" "gamma1")))
+           ((:add :beta ("alpha2" "beta4"))
+            (:update :beta ("alpha1" "beta4")))
+           ((:update :alpha ("alpha1"))
+            (:delete :alpha ("alpha3")))))))

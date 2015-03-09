@@ -1,0 +1,84 @@
+.label {
+	text-align: right;
+	padding-right: 5px;
+}
+
+th, td {
+	padding: 5px 7px;
+	text-align: center;
+}
+
+tbody {
+	border-top: 1px solid #617274;
+	border-bottom: 1px solid #617274;
+}
+
+.separation {
+	border-left: 1px solid #617274;
+}
+
+.first-cell {
+	text-align: right;
+	padding-right: 15px;
+}
+
+.first-data-cell {
+	padding-left: 17px;
+}
+
+.first-data-row {
+	border-top: 1px solid #405052;
+}
+
+.strong {
+	font-weight: bold;
+}
+
+.highlight {
+	background-color: #224d52;
+}
+
+.verticalList, .horizontalList {
+	list-style: none;
+	margin: 5px;
+	padding: 5px;
+}
+
+.horizontalList > li {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.verticalList > li {
+	display: list-item;
+}
+
+/* Scrollable table */
+table.scroll tbody, table.scroll thead {
+	display: block;
+}
+
+table.scroll thead tr {
+	display: block;
+    width: 100%;
+}
+
+table.scroll thead tr th {
+    height: 30px;
+    line-height: 30px;
+}
+
+table.scroll tbody {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+/*
+tbody { border-top: 2px solid black; }
+
+tbody td, thead th {
+    border-right: 1px solid black;
+}
+
+tbody td:last-child, thead th:last-child {
+    border-right: none;
+}*/

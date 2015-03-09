@@ -1,0 +1,9 @@
+C:\home\thomas\apart\pomodoro\app\TransparentOverlay\TransparentOverlay\bin\Debug\TransparentOverlay.exe.config
+C:\home\thomas\apart\pomodoro\app\TransparentOverlay\TransparentOverlay\bin\Debug\TransparentOverlay.exe
+C:\home\thomas\apart\pomodoro\app\TransparentOverlay\TransparentOverlay\bin\Debug\TransparentOverlay.pdb
+C:\home\thomas\apart\pomodoro\app\TransparentOverlay\TransparentOverlay\obj\Debug\TransparentOverlay.csprojResolveAssemblyReference.cache
+C:\home\thomas\apart\pomodoro\app\TransparentOverlay\TransparentOverlay\obj\Debug\TransparentOverlay.Form1.resources
+C:\home\thomas\apart\pomodoro\app\TransparentOverlay\TransparentOverlay\obj\Debug\TransparentOverlay.Properties.Resources.resources
+C:\home\thomas\apart\pomodoro\app\TransparentOverlay\TransparentOverlay\obj\Debug\TransparentOverlay.csproj.GenerateResource.Cache
+C:\home\thomas\apart\pomodoro\app\TransparentOverlay\TransparentOverlay\obj\Debug\TransparentOverlay.exe
+C:\home\thomas\apart\pomodoro\app\TransparentOverlay\TransparentOverlay\obj\Debug\TransparentOverlay.pdb

@@ -1,0 +1,13 @@
+{
+  "name": "my-pomodoro",
+  "main": "index.html",
+  "window": {
+    "show": false,
+    "toolbar": false,
+    "frame": false,
+    "position": null,
+	"resizable": true,
+	"always-on-top": true,
+	"show_in_taskbar": true
+  }
+}

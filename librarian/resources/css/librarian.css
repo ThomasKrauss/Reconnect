@@ -1,0 +1,41 @@
+#resource-list ul {
+	list-style: none;
+}
+
+#resource-list > ul > li, body > ul > li > ul {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#resource-list span.header {
+	font-weight: bold;
+	display: block;
+	text-align: center;
+}
+
+#resource-list .header {
+	font-weight: bold;
+}
+
+/******************/
+
+.doc {
+	list-style: none;
+}
+
+.doc > li {
+	margin: 30px 0 15px;
+}
+
+.doc .actionName {
+	font-weight: bold;
+}
+
+.doc .signature {
+	margin-left: 20px;
+	font-style: italic;
+}
+
+.doc .summary {
+	margin-left: 20px;
+}

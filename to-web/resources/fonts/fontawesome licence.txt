@@ -1,0 +1,4 @@
+Font Awesome by Dave Gandy - http://fontawesome.io
+
+The license is the Open Font Licence
+See http://fortawesome.github.io/Font-Awesome/license/

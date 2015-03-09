@@ -1,0 +1,272 @@
+.barchart {
+	background: inherit;
+	letter-spacing: normal;
+}
+
+.barchart .bar {
+	fill: #586e75;
+	stroke: none;
+}
+
+.barchart .axis {
+	stroke: #839496;
+	stroke-width: 2;
+}
+
+.barchart .grid {
+	stroke: #839496;
+	stroke-width: 1;
+}
+
+.barchart .legend {
+	fill: #839496;
+	stroke:none;
+}
+
+.graph {
+	font-family: 'Anonymous';
+}
+
+.node {
+	stroke: #839496;
+	fill: none;
+}
+
+.node text {
+	stroke: none;
+	fill: #839496;
+	font-style: italic;
+}
+
+.node.narrow text {
+	font-weight: bold;
+	font-style: normal;
+}
+
+span.narrow {
+	border: 1px solid #839496;
+	font-weight: bold;
+	font-style: normal;
+	padding: 3px 5px;
+}
+
+.node.wide {
+	stroke-width: 2;
+}
+
+.node.wide text {
+	font-weight: bold;
+	font-style: normal;
+}
+
+span.wide {
+	border: 2px solid #839496;
+	font-weight: bold;
+	font-style: normal;
+	padding: 3px 5px;
+}
+
+.node.unused {
+	stroke-dasharray: 5,5;
+	stroke-width: 1;
+}
+
+span.unused  {
+	border: 1px dashed #839496;
+	font-weight: bold;
+	padding: 3px 5px;
+}
+
+.node.exported {
+	stroke: #268bd2;
+}
+
+span.exported {
+	border: 1px solid #268bd2;
+	padding: 3px 5px;
+}
+
+.node.to-be-used {
+	stroke: #268bd2;
+	stroke-dasharray: 2,2;
+}
+
+span.to-be-used  {
+	border: 1px dotted #268bd2;
+	padding: 3px 5px;
+}
+
+.node.ok text {
+	fill: #859900;
+}
+
+.node.error text {
+	fill: #dc322f;
+}
+
+.node.warning text {
+	fill: #b58900;
+}
+
+.node.end {
+	stroke: none;
+	fill: #103b40;
+}
+
+.node.end text {
+	font-style: normal;
+}
+
+span.end {
+	background-color: #103b40;
+}
+
+.edge {
+	stroke: #839496;
+	fill: none;
+}
+
+.edge.error {
+	stroke: #dc322f;
+}
+
+.edge.install {
+	stroke-dasharray: 3,3;
+	stroke-width: 2;
+}
+
+.cluster rect {
+	stroke: none;
+	fill: #073642;
+}
+
+.cluster text {
+	stroke: none;
+	fill: #839496;
+	font-weight: bold;
+}
+
+
+/* Horizontal bar chart */
+.chartlist { 
+	width: 600px;
+	margin-right: 10px; 
+	padding: 0; 
+	list-style-type: none;
+}
+.chartlist li {
+	margin: 3px 0;
+}
+.title {
+	text-align: right;
+	display: inline-block;
+}
+
+.chartlist li:hover { 
+	background: #dfdfdf; 
+}
+
+.stackedchart {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.stackedchart li {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.color0 {
+	background-color: #5a5;
+	border-color: #5a5;
+}
+
+.color1 {
+	background-color: #a00;
+	border-color: #a00;
+}
+
+.color2 {
+	background-color: grey;
+	border-color: grey;
+}
+
+.color3 {
+	background-color: #9f9;
+	border-color: #9f9;
+	color: #5a5;
+}
+
+.color4 {
+	background-color: #f55;
+	border-color: #f55;
+	color: #a00;
+}
+
+.color5 {
+	background-color: lightgrey;
+	border-color: lightgrey;
+	color: black;
+}
+
+.stackedchart li a {
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	font-size: 0.5em;
+	vertical-align: middle;
+	text-decoration: none;
+	border-style: solid;
+	border-width: 1px;
+	color: white;
+}
+/* Pie chart */
+.pieContainer {
+	height: 20px;
+	display: inline-block;
+	margin-right: 25px;
+}
+
+.pieBackground {
+	background-color: #5a5;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-o-border-radius: 50px;
+	border-radius: 50px;
+}
+.pie {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-o-border-radius: 50px;
+	border-radius: 50px;
+	clip: rect(0px, 10px, 20px, 0px);
+}
+.hold {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-o-border-radius: 50px;
+	border-radius: 50px;
+	clip: rect(0px, 20px, 20px, 10px);
+}
+#pieSlice1 .pie, #pieSlice1add .pie {
+	background-color: grey;
+}
+#pieSlice2 .pie, #pieSlice2add .pie {
+	background-color: #a00;
+}
+#pieSlice1add {
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+	transform:rotate(180deg);
+}

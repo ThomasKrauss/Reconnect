@@ -1,0 +1,246 @@
+html {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Anonymous Pro";
+  font-weight: bold;
+  background-color: #fdf6e3;
+  color: #657b83;
+}
+
+#layout {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.content {
+	overflow: auto;
+	padding: 0 0 2%;
+	border-bottom: 2px solid #657b83;
+}
+/*
+WARNING! Huge performance slowdown with dragging + frame disabled
+.drag {
+	-webkit-app-region: drag;
+	cursor: move;
+}
+*/
+
+button {
+	font-size: 18px;
+	text-align: center;
+	display: inline-block;
+	width: 175px;
+	margin: 20px auto 10px;
+	padding: 5px 10px;
+	color: #657b83;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #eee8d5));
+	background-color: #ededed;
+	-webkit-border-radius: 5px;
+	cursor: pointer;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	border: 1px solid #ededed;
+}
+
+button:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #eee8d5), color-stop(1, #ddd7c4));
+	background-color: #eee8d5;
+}
+
+button:disabled, .doneButton:disabled, .doneButton:disabled:hover, #killBtn:disabled, #killBtn:disabled:hover {
+	color: #657b83;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #93a1a1), color-stop(1, #93a1a1));
+	background-color: #93a1a1;
+}
+
+#timerBtn, .doneButton, #killBtn, .centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.doneButton {
+	color: #fff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #A5B920), color-stop(1, #859900));
+	background-color: #859900;
+	border: 1px solid #859900;
+}
+
+.doneButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #859900), color-stop(1, #657900));
+	background-color: #859900;
+}
+
+#killBtn {
+	color: #fff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe655f), color-stop(1, #dc322f));
+	background-color: #dc322f;
+	border: 1px solid #dc322f;
+}
+
+#killBtn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dc322f), color-stop(1, #ba000c));
+	background-color: #859900;
+}
+
+h3 {
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	background-color: #eee8d5;
+	-webkit-border-radius: 5px;
+	border: 1px solid #eee8d5;
+	margin: 8px 0;
+	padding: 2px 5px;
+}
+
+#wishTaskManager, #selectionLists, #annotationList, #statistics {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	height: 100%;
+	padding: 0;
+}
+
+#selectionLists li:hover, #annotationList li:hover, .editable:hover  {
+	cursor: pointer;
+	border-color: rgb(229, 151, 0);
+}
+
+/*
+	wishTaskManager related styles
+*/
+#wishTaskManager input {
+	margin-right: 20px;
+	width: 50%;
+}
+
+#wishTaskManager li a {
+	text-decoration: none;
+	color: #dc322f;
+}
+
+#wishTaskManager li a:hover {
+	background-color: #eee8d5;
+}
+
+/*
+	selectionLists related styles
+*/
+#selectionLists ul {
+	margin: 0 20px;
+}
+
+/*
+	annotationList related styles
+*/
+.annotation, .pomodoro, .interrupt {
+	font-weight: bold;
+	float: right;
+}
+
+.pomodoro, .interrupt {
+	margin-right: 10px;
+}
+
+.interrupt {
+	color: #dc322f;
+}
+
+.pomodoro {
+	color: #a5b920;
+}
+
+.done {
+	text-decoration: line-through;
+	background-color: #fdf6e3;
+	border-color: #fdf6e3;
+}
+
+#annotationList li.done:hover {
+	cursor: auto;
+	background-color: #fdf6e3;
+	border-color: #fdf6e3;
+}
+
+/*
+	Timer related styles
+*/
+#timer {
+	width: 100%;
+	text-align: center;
+	margin: 10px 0 0;
+	padding: 0px;
+	font-size: 36px;
+	-webkit-user-select: none;
+	cursor: default;
+}
+
+/*
+	Statistics
+*/
+#statistics .entry {
+	display: inline-block;
+	width: 150px;
+	margin: 0 15px;
+	text-align: center;
+}
+
+/*
+	Options
+*/
+#options {padding: 0; margin: 0; border: 0; float: left; z-index: 597;}
+#options ul, #options li {list-style: none; margin: 0; padding: 0;}
+#options ul {position: relative; z-index: 597; }
+#options ul li { float: left; min-height: 1px; vertical-align: middle;}
+#options ul li.hover,
+#options ul li:hover {position: relative; z-index: 599; cursor: default;}
+#options ul ul {visibility: hidden; position: absolute; top: 100%; left: 0; z-index: 598; width: 100%;}
+#options ul ul li {float: none;}
+#options ul li:hover > ul { visibility: visible;}
+#options ul ul {bottom: 0; left: 0;}
+#options ul ul {margin-top: 0; }
+#options ul ul li {font-weight: normal;}
+#options a { display: block; line-height: 1em; text-decoration: none; }
+
+#options:after, #options ul:after {
+    content: '';
+    display: block;
+    clear: both; 
+}
+
+#options a {
+    background-color: #eee8d5;
+	color: #2aa198;
+    padding: 3px 10px;
+	border: 1px solid #eee8d5;
+}
+
+#options ul ul {
+	min-width: 190px; 
+}
+
+#options ul ul a {
+	background-color: #eee8d5;
+	color: #2aa198;
+	-webkit-border-radius: 5px;
+	border: 1px solid #eee8d5;
+	padding: 3px 0 3px 20px;
+}
+#options ul ul li { position: relative; }
+
+#options ul li:hover > a, #options ul li.active > a {
+	-webkit-border-radius: 5px;
+	border: 1px solid rgb(229, 151, 0);
+}
