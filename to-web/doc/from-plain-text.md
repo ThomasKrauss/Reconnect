@@ -45,25 +45,25 @@ Some characters make texts nicer to read but they are quite a pain to use in pur
 
 Here are the character or sequence of characters that are special:
 
-'
+'   
 A single quote will yield a proper opening simple quote. If a word is written in quotes, the second will be replaced by a closing simple quote.
 
-"
+"    
 Same thing here as with single quotes.
 
--
+\-   
 A hyphen will be replaced by a non-breaking hyphen.
 
---
+\-\-   
 Two hyphens will be replaced by a small dash, as needed when writing ranges like from page 330 to page 339 that you may want to shorten to 330--39.
 
----
+\-\-\-   
 Three hyphens will be replaced by a long dash, as needed to break visually a sentence with a remark.
 
-...
+...   
 Three dots in a row will be replaced by an ellipsis.
 
-(
+(   
 An opening parenthesis will trigger HTML insertion. You do not write classical, verbose HTML but Lisp-like HTML as in:
 
 	(:p :class "title" "Here's a list of things")
@@ -74,8 +74,8 @@ How to escape
 
 The escape character is the colon :. So if you really want a single quote or two hyphens or an opening parenthesis, you would write:
 
-:'
-:-:-
+:'   
+:\-:\-   
 :(
 
 Note that since the colon character is never used at the beginning of a word, you can just type a colon character when you actually need one (contrary to the backslash character commonly used in programming languages that you need to write twice to get one).
@@ -87,23 +87,23 @@ You write special HTML characters as :char rather than writing them with the syn
 
 Here they are:
 
-*:para*
+*:para*   
 The symbol for a paragraph. A non-breaking is always included after it.
 
-*:sect*
+*:sect*   
 The symbol for a section. A non-breaking is always included after it.
 
-*:trade*
+*:trade*   
 The trademark symbol.
 
-*:reg*
+*:reg*   
 The registered symbol.
 
-*:copy*
+*:copy*   
 The copyright symbol. A non-breaking is always included after it.
 
-*:nbsp*
+*:nbsp*   
 Insert a non-breaking space manually.
 
-*:br*
+*:br*   
 Insert a hard line break manually.
