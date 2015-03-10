@@ -18,12 +18,10 @@ Long story short:
 
 While the basic inner codes are pretty straightforward, there are two things to understand here:
 
-1) There's a dissociation between the code production wrapper (with-html-output-to-string) and the code production action itself (html).
+1. There's a dissociation between the code production wrapper *with-html-output-to-string* and the code production action itself *html*.
+2. Every time you do not use a keyword as the first element of a perimeter, it is assume you use code. You then must use again the html action to produce HTML.
 
-2) Every time you do not use a keyword as the first element of a perimeter, it is assume you use code. You then must use again the html action to produce HTML.
-
-Which you can see when we produce the unordered list of items in the code above. As soon as we used dolist, we have returned to plain code, no special notation needed. As soon as we needed to produce again HTML code, we write html again. And then we can write (:li item).
-
+Which you can see when we produce the unordered list of items in the code above. As soon as we used dolist, we have returned to plain code, no special notation needed. As soon as we needed to produce again HTML code, we write html again. And then we can write <code>(:li item)</code>.
 
 HTML code production wrappers
 -----------------------------
@@ -36,21 +34,17 @@ The wrappers direct the HTML code produced to where you need. When you look at t
 
 The most general one is with-html-output and associates the stream you give to the HTML output. All the produced HTML code will be written to that stream.
 
-The wrapper with-html-output-to-string is in fact mounted on top of with-html-output and passes an output-string-stream to it so that in the end you have the produced HTML code in a string.
+The wrapper *with-html-output-to-string* is in fact mounted on top of *with-html-output* and passes an output-string-stream to it so that in the end you have the produced HTML code in a string.
 
-The wrapper with-html-output-to-file is also mounted on top of with-html-output but the produced HTML code will be written to a file in UTF-8 encoding.
+The wrapper *with-html-output-to-file* is also mounted on top of *with-html-output* but the produced HTML code will be written to a file in UTF-8 encoding.
 
-The :prologue argument is true by default only for this last wrapper because it is expected that when you write HTML code in a file, it will be a HTML file.
-
-The default value for the prologue is the doctype for HTML5: "<!DOCTYPE html>". If :prologue is a string however, that value will be used instead.
+The *:prologue* argument is true by default only for this last wrapper because it is expected that when you write HTML code in a file, it will be a HTML file. The default value for the prologue is the doctype for HTML5: "<!DOCTYPE html>". If *:prologue* is a string however, that value will be used instead.
 
 
 HTML production functions
 -------------------------
 
-The dissociation between the wrapper and the actual action to produce HTML code allows to define HTML production functions that are not tied to a particular place.
-
-In other words, by switching wrappers, you redirect the whole HTML code produced to another place without any manipulation on the underlying HTML production functions.
+The dissociation between the wrapper and the actual action to produce HTML code allows to define HTML production functions that are not tied to a particular place. In other words, by switching wrappers, you redirect the whole HTML code produced to another place without any manipulation on the underlying HTML production functions.
 
 Such functions have the following basic form:
 
@@ -77,9 +71,7 @@ And then:
 
 	"<p class='title'>Here's a list of things</p><ul><li>foo</li><li>bar</li><li>baz</li></ul>"
 
-Only the top-most functions need to use a wrapper. All the other helper functions just use the html action.
-
-In practice, it is common to define a template with a macro that will install the wrapper in your code and to only care then about the html action. Such a macro can be, for example:
+Only the top-most functions need to use a wrapper. All the other helper functions just use the html action. In practice, it is common to define a template with a macro that will install the wrapper in your code and to only care then about the html action. Such a macro can be, for example:
 
 	(defmacro basic-page ((title) &body body)
 	  `(with-html-output-to-file (,file)
@@ -172,7 +164,7 @@ A tour of the special operators
 
 Special operators allow you to twist the basic rules of HTML production presented above. For instance, :print is a special operator. Here are some examples:
 
-Operator :noescape
+Operator *:noescape*
 
 	> (... (:p (:noescape "Escape the following characters: < & >")))
 	
@@ -182,45 +174,43 @@ Operator :noescape
 	
 	"<p class='Escape < & > \" ''>The text.</p>"
 
-Of course, using :noescape when escaping would have help you to emit valid HTML is asking for trouble...
+Of course, using *:noescape* when escaping would have help you to emit valid HTML is asking for trouble...
 
 
-Operator :attribute
+Operator *:attribute*
 
 	> (... (:p (:attribute "Escape \" '")))
 	
 	"<p>Escape &quot; &apos;</p>"
 
-This example is stupid because :attribute have no real use in the interpreter per se, since escaping is enabled by default.
-
-The need filled by :attribute is when you want to define functions to produce string intended to be attribute values. With :attribute, you can ask for the proper escaping.
+This example is stupid because *:attribute* have no real use in the interpreter per se, since escaping is enabled by default. The need filled by *:attribute* is when you want to define functions to produce string intended to be attribute values. With *:attribute*, you can ask for the proper escaping.
 
 
-Operator :print
+Operator *:print*
 
 	> (... (:p (:print (+ 1 2))))
 	
 	"<p>3</p>"
 
-With :print, you indicates you want to target the text node of the node you currently writing content for.
+With *:print*, you indicates you want to target the text node of the node you currently writing content for.
 
 
-Operator :format
+Operator *:format*
 
 	> (... (:p (:format "Value: ~a" "test")))
 
 	"<p>Value: test</p>"
 
-With :format, you also target the text node of the node you are currently writing content for. But :print just... well, prints the value according to basic rule of formatting of Common Lisp. Since it may not be what you want, you can always do the following:
+With *:format*, you also target the text node of the node you are currently writing content for. But *:print* just... well, prints the value according to basic rule of formatting of Common Lisp. Since it may not be what you want, you can always do the following:
 
 	> (... (:p (:print (format "Value: ~a" "test"))))
 
 	"<p>Value: test</p>"
 
-The operator :format is just a shortcut for that pattern.
+The operator *:format* is just a shortcut for that pattern.
 	
 
-Operator :progn
+Operator *:progn*
 
 	> (... (:p (:progn "foo" "bar" "baz")))
 
@@ -245,10 +235,10 @@ There are 5 HTML macros defined in the code system to-web:
 	:insert
 	:a!
 
-The first two, :css and :js, are shortcuts to declare the use of CSS and JS files in a HTML document. By using these macros, the names of the required files are known and can then be automatically made available when building web-results and web-editors.
+The first two, *:css* and *:js*, are shortcuts to declare the use of CSS and JS files in a HTML document. By using these macros, the names of the required files are known and can then be automatically made available when building web-results and web-editors.
 
-The macro :com is a shortcut to declare the use of the JS Ajax communication file that contains the generated Ajax calls that allows the web application to have out-of-the-box the appropriate JS function that will call the associated CL function.
+The macro *:com* is a shortcut to declare the use of the JS Ajax communication file that contains the generated Ajax calls that allows the web application to have out-of-the-box the appropriate JS function that will call the associated CL function.
 
-The macro :insert is intended to insert a string containing HTML production code so that HTML is really produced upon reading that string instead of just treating it as a pure value to write verbatim.
+The macro *:insert* is intended to insert a string containing HTML production code so that HTML is really produced upon reading that string instead of just treating it as a pure value to write verbatim.
 
-The macro a! is just a shortcut allowing to avoid writing all these target="_blank" in hyper-links to ensure a click on them open a new tab rather than change the current page.
+The macro *:a!* is just a shortcut allowing to avoid writing all these target="_blank" in hyper-links to ensure a click on them open a new tab rather than change the current page.

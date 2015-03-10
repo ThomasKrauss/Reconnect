@@ -16,15 +16,13 @@ Vocabulary
 
 When I thought about associating tests to my source code, a very natural question arose: what's the first tests I could write?
 
-I did answer the question. Interestingly, the answer had an unforeseen trait. I found out I could only write about how I intended the code to be used. Hence the term *usages*.
-
-From there, several things can be deduced.
+I did answer the question. Interestingly, the answer had an unforeseen trait. I found out I could only write about how I intended the code to be used. Hence the term *usages*. From there, several things can be deduced.
 
 Usages can form, with the documentation string, a pretty good documentation of the code. Because they are examples of how to use the code.
 
-At one point, the code is really used so it feels pretty natural to check if the use satisfies the need. Since any Lisp code can be read easily, I think such real uses can be automatically incorporated as usages and then checked. But I haven't done any work in that direction for now.
+And at one point, the code is really used so it feels pretty natural to check if the use satisfies the need. Since any Lisp code can be read easily, I think such real uses can be automatically incorporated as usages and then checked. But I haven't done any work in that direction for now.
 
-Last but not least, if you stumble on something that you have difficulty to provide usages of, it may be that it is not much usable per se. Then the world is wide open, from 'Why bother providing usages?' to 'Maybe I should think again my code?'. You are the judge.
+Last but not least, if you stumble on something that you have difficulty to provide usages of, it may be that it is not much usable per se. Then the world is wide open, from *Why bother providing usages?* to *Maybe I should think again my code?*. You are the judge.
 
 Here is a summary of the various modules.
 

@@ -5,4 +5,4 @@ The overview system is defining a watcher web application to display the statist
 
 At the level of all systems, or per system, or per module.
 
-It also defines the action initialize-work-environment that ought to be executed if you want to compute all the data that is being displayed by the watcher.
+It also defines the action *initialize-work-environment* that ought to be executed if you want to compute all the data that is being displayed by the watcher.

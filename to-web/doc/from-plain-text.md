@@ -87,23 +87,23 @@ You write special HTML characters as :char rather than writing them with the syn
 
 Here they are:
 
-:para
+*:para*
 The symbol for a paragraph. A non-breaking is always included after it.
 
-:sect
+*:sect*
 The symbol for a section. A non-breaking is always included after it.
 
-:trade
+*:trade*
 The trademark symbol.
 
-:reg
+*:reg*
 The registered symbol.
 
-:copy
+*:copy*
 The copyright symbol. A non-breaking is always included after it.
 
-:nbsp
+*:nbsp*
 Insert a non-breaking space manually.
 
-:br
+*:br*
 Insert a hard line break manually.

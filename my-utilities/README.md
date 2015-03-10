@@ -32,7 +32,7 @@ With the anaphoric if *aif*:
 
 And that only needs one more letter on the term *if* to ripe this benefit of brevity and readability!
 
-Of course, anaphora do not blend well together, just as in normal speech: "Put it on the table and serve it." And you're like "Wait, what? You are talking about the salt, right?" Strange? Yeah, nobody is talking like that with the first "it" being the salt and the second being something else. Don't expect anaphora to work otherwise in your own code. If there's anaphoric conflicts, there's a need of clarity.
+Of course, anaphora do not blend well together, just as in normal speech: *"Put it on the table and serve it."*. And you're like ù"Wait, what? You are talking about the salt, right?"ù Strange? Yes. Because nobody talks like that with the first "it" being the salt and the second being something else. Don't expect anaphora to work otherwise in your own code. If there's anaphoric conflicts, there's a need of clarity.
 
 The anaphoric macro I'm using and haven't seen somewhere else is *let-a*. Most anaphoric macros are tied down to an action that is different from *let*: *aif* is a wrapper over *if*, *awhen* over *when*, etc.
 
@@ -48,7 +48,7 @@ You do:
 		; use it everywhere
 		)
 
-It felt silly when I defined *alet* but being relieved from having to come up with new names or use repetitive names proved itself to be great. Really. It is great. Seriously. It is AWESOME!
+It felt silly when I defined *let-a* but being relieved from having to come up with new names or use repetitive names proved itself to be great. Really. It is great. Seriously. It is AWESOME!
 
 1-util
 ------
@@ -71,14 +71,17 @@ I know, that name is gross. I'm sorry. It's just that I prefer the Scheme conven
 
 I have just normalize thing a bit here. I mean, you have to know that:
 
-- fboundp => pure boolean, identify an action
-- macro-function => nil or function, identify a macro (in fact)
-- special-operator-p => nil or a list of all succeeding special-operators, in alphabetical order, starting with the special operator you have passed
+- fboundp
+	*=> pure boolean, identify an action*
+- macro-function
+	*=> nil or function, identify a macro (in fact)*
+- special-operator-p
+	*=> nil or a list of all succeeding special-operators, in alphabetical order, starting with the special operator you have passed*
 
 For my code, it is easy: if the symbol you passed is indeed what it is you want, it falls through. Like:
 
-> (cl-action? '+)
-+
+	> (cl-action? '+)
+	+
 
 And you then only need to remember the action names:
 - cl-action?
@@ -105,7 +108,7 @@ The dashboard may tell you they are unused but I have some end code systems that
 
 And that tell you the dependency parser should be improved on that point to take into account systems that are not loaded in the image (because they are not available or because they are not needed per se).
 
-Call for help: action in Lisp may contain nearly any character possible and that includes some that are not accepted by outside programs. Namely Windows for me. But usage files are named after an action name. So I have used a simple but awful strategy.
+*Call for help*: action in Lisp may contain nearly any character possible and that includes some that are not accepted by outside programs. Namely Windows for me. But usage files are named after an action name. So I have used a simple but awful strategy.
 
 I have a list of forbidden characters and when I spot them in the name of an action, I replaced them by a tilde followed by the index of the offending character in my list.
 

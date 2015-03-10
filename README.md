@@ -21,24 +21,24 @@ It has the following things:
 
 It is still very young and is far from being either whole or usable. This is not surprising because the Reconnect project aims to connect again things that were connected.
 
-We know all too well that computers can give us results they are not much able to help us explore. One way is obviously to make them more knowledgeable about the results themselves, their structure and their organization.
+We know all too well that computers can give us results they are not much able to help us explore. One way to fix the issue is obviously to make them more knowledgeable about the results themselves.
 
 But since I am a programmer, I have been more interested in making them explore how we have arrived to such results. While this perspective may feel loony, it's actually distressing to notice how much code we have and how few ways to look at it we use. Despite code is a web of connections of all kinds: logical, structural, organized in a timely fashion, etc.
 
-Since I am a programmer, I witness daily these connections. They exist as without them programs could not run. But somehow they get lost. And I know damn well what we are doing systematically then: we manually reconnect things. In our head, in documentation, in tutorials, in tests, in frameworks, in methodologies, you name it. Every time, it's about asking more from us, not from the computers.
+Since I am a programmer, I witness these connections on a daily basis. They exist as without them programs could not run. But somehow they get lost. And I know damn well what we are doing systematically then: we *manually* reconnect things. In our head, in documentation, in tutorials, in tests, in frameworks, in methodologies, you name it.
 
-Therefore, one of my basic moves was to not do that if I could have asked the computer to reconnect things. And it goes to a so fundamental level that the Reconnect project still has deep shortcomings on basic code editing tasks.
+Every time, it's about asking more from us, not from the computers.
 
-However, note that it is only about 8500 lines of Common Lisp code. And that's counting all the duplicates in the my-graphs system which is currently under heavy refactoring. The Javascript code is a not a monster either, thanks to the use of <a href="http://facebook.github.io/react/index.html">React</a>. But it's quite a mess for now.
+Therefore one of my basic moves was to not do that if I could have asked the computer to reconnect things. And I have found out that it goes to a so fundamental level that the Reconnect project still has deep shortcomings on basic code editing tasks.
+
+However note that it is only about 8500 lines of Common Lisp code. And that's counting all the duplicates in the my-graphs system which is currently under heavy refactoring. The Javascript code is a not a monster either (if you ignore the various libraries used I didn't code), thanks to the use of <a href="http://facebook.github.io/react/index.html">React</a>. But it's quite a mess for now.
 
 Setup
 -----
 
 This project has been developed on Windows, under <a href="http://www.lispworks.com/downloads/">the Personal Edition of LispWorks</a>. Even if only a tiny and peripheral bit of code is limited to work on this implementation, I would advice you to use it.
 
-You may work on another OS without much difficulty (unchecked claim!). There's only one part of code related to Windows and it's the tiny and peripheral bit of code. What's more, that code only helps setting the PATH variable on Windows, something you can do by hand on the OS of your choice.
-
-The tiny bit of code checks if the various external needed programs are available on the command line, without any knowledge of where the actual program is installed.
+You may work on another OS without much difficulty (unchecked claim!). There's only one part of code related to Windows and it's the tiny and peripheral bit of code. What's more, that code only helps setting the PATH variable on Windows, something you can do by hand on the OS of your choice. To be more precise, it checks if the various external needed programs are available on the command line regardless of where they are installed.
 
 The needed programs are:
 - dot (from <a href="http://www.graphviz.org/">Graphviz</a>)
@@ -52,13 +52,15 @@ A bit of a warning though.
 
 The dependency parser has a list of packages it should not care about and these are all internal LispWorks packages. While the parser should work fine in other implementations (unchecked claim again), it will include extraneous information depending on how your implementation deals with various macros (like defun, defmacro, etc).
 
-To ignore these superfluous information, just add the package names to ignore in my-lisp-parsing/0-parse-forms.lisp, in the default values of the :ignore-packages argument in functions parse-module-actions and filter-symbols. Otherwise the parser will capture a lot of actions and you will end with really cluttered graphs.
+And they may be a lot of them which will result, in such a case, in really cluttered graphs.
 
-Also note I work with three screens. Opera is opened on the left, Chrome on the right, Firefox on the middle. It is still experimental and not knowing where I go from there, I just keep it simple.
+To ignore these information, add the package names to ignore in *my-lisp-parsing/0-parse-forms.lisp*, in the default values of the *:ignore-packages* argument in functions *parse-module-actions* and *filter-symbols*.
 
-So to adapt to your own configuration, it is very easy. Take a look at the initialize-work-environment in overview/0-main.lisp. Just setup where (and if) you want to open the dashboard view and the result view. For Firefox, as of now, I only have a bookmark to my code editor http://localhost:9999/code-editor/editor.
+Also note I work with three screens. Opera is opened on the left, Chrome on the right, Firefox on the middle. It is still experimental and not knowing where I go from there, I just keep it simple. So it is very easy to adapt to your own configuration.
 
-If I use three different browsers, it's because on Windows they are a bit of pain to configure on the command line. I wanted only one of them and programmatically open several windows of it on the screen I wanted to the URL I wanted. But browsers are a bit deaf to command line arguments on Windows (it seems better on Mac OS and Linux but please do check by yourself what is available). So, long story short, I instead installed three of them and rely on the last position occupied since they reopen there.
+Take a look at the *initialize-work-environment* in *overview/0-main.lisp*. Just setup where (and if) you want to open the dashboard view and the result view. For Firefox, as of now, I only have a bookmark to my code editor <a target="_blank" href="http://localhost:9999/code-editor/editor">http://localhost:9999/code-editor/editor</a>.
+
+If I use three different browsers, it's because on Windows they are a bit of pain to configure on the command line. I wanted only one of them and open several windows where I wanted. But browsers are a bit deaf to command line arguments on Windows (it seems better on Mac OS and Linux but please do check by yourself what is available). So, long story short, I instead installed three of them and rely on the last position occupied since they reopen there.
 
 More details
 ------------
@@ -96,9 +98,11 @@ The mission
 
 You can find the detailed mission statement <a href="http://www.vagrant-coder.com/reconnect/english/The-mission.html">here</a>.
 
-It is of course heavily geared towards my own idiosyncrasies. But it gives a sense of where this project is heading. Although I have not much done to make the various things I talk about a reality.
+It is of course heavily geared towards my own idiosyncrasies. But it gives a sense of where this project is heading. Although I have not done much to make the various things I talk about a reality.
 
 In particular, I just release the various code systems in a one whole package despite each one of them being an ASDF system. I did try a year ago to make a repository for each one of them but that was a lot of work. And the result felt disconnected and a burden of maintenance.
+
+I know it is not the proper to share code systems but I prefer to deal with these issues while grounded in concretely sharing things rather than design in an ivory tower. I'm sorry for how inconvenient and demanding it is to install this project. I tried to lower it to the best of my ability.
 
 What's going on now
 -------------------
