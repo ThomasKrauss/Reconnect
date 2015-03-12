@@ -239,7 +239,12 @@ If so, it needs to include socket.io.js and refresh.js")
                             system-name
                             target-directory
                             :install-associated install-associated))))
-    
+
+(defvar *final-built* nil)
+
+(defun is-built-final? ()
+  *final-built*)
+
 (defun build-web-result (system-name &key final)
   (let ((web-result (find-web-result system-name))
         (target-directory (if final
@@ -249,7 +254,8 @@ If so, it needs to include socket.io.js and refresh.js")
                                  (get-final-web-result-pathname system-name))
                             (system-watcher-directory system-name))))
     (delete-directory-and-files target-directory :if-does-not-exist :ignore)
-    (let ((*watched* (not final)))
+    (let ((*watched* (not final))
+          (*final-built* final))
       (build-with-resources (rest web-result) system-name target-directory))))
 
 (defun update-web-result (system-name &rest names)

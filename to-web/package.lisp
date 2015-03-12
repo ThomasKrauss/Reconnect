@@ -18,6 +18,7 @@
    :install-resource
    :define-web-result
    :build-web-result
+   :is-built-final?
    :update-web-result
    :build-web-editor
    :build-all-web-results
