@@ -146,8 +146,8 @@ Invalid characters (like .) are ignored in variable names and thus skipped."
                 (var sockets (array))
                 (var watched-system-name)
                 (var watched-resources (array))
-                (var site-base-path "c:/home/thomas/watcher/")
-                (var resource-config-file "c:/home/thomas/watcher/resources.json")
+                (var site-base-path "c:/home/lisp/watcher/")
+                (var resource-config-file "c:/home/lisp/watcher/resources.json")
                 (var emit (lambda (event-name content)
                             (when (and event-name (or content
                                                       (> (@ content length) 0)))
@@ -638,8 +638,8 @@ Invalid characters (like .) are ignored in variable names and thus skipped."
                        :direction :output
                        :if-exists :supersede)
       (write-string
-       (json<-lisp (list '(:name "code-editor" :resources ("c:/home/thomas/work/my-lisp-parsing/caches/"
-                                                           "c:/home/thomas/work/code-editor/"))
-                         '(:name "overview" :resources ("c:/home/thomas/work/my-lisp-parsing/caches/"))))
+       (json<-lisp (list '(:name "code-editor" :resources ("c:/home/lisp/work/my-lisp-parsing/caches/"
+                                                           "c:/home/lisp/work/code-editor/"))
+                         '(:name "overview" :resources ("c:/home/lisp/work/my-lisp-parsing/caches/"))))
        s))))
        
