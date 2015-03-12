@@ -4,7 +4,7 @@ The installation is in separated in four simple and straightforward steps. Then 
 2. Install some libraries
 3. Install some external programs
 4. How to launch the Reconnect project after installation
-5. Create a test project
+5. Create a test system
 
 
 1. Set up

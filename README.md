@@ -19,6 +19,8 @@ It has the following things:
 - a graph library
 - a hierarchical cache library
 
+For a quick overview of these features with some illustrative snapshots, please read <a href="http://www.vagrant-coder.com/reconnect/english/Results.html">this</a>.
+
 It is still very young and is far from being either whole or usable. This is not surprising because the Reconnect project aims to connect again things that were connected.
 
 We know all too well that computers can give us results they are not much able to help us explore. One way to fix the issue is obviously to make them more knowledgeable about the results themselves.
@@ -68,8 +70,6 @@ More details
 For the detailed installation informations, check the file Install-instructions.md
 
 For a summary of all things you may want to test, check the file Run-cheat-sheet.md
-
-For a detailed account on each of the features, you may want to read <a href="http://www.vagrant-coder.com/reconnect/english/Results.html">this</a>.
 
 Vocabulary
 ----------
