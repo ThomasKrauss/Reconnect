@@ -1,9 +1,10 @@
-The installation is in separated in four simple and straightforward steps.
+The installation is in separated in four simple and straightforward steps. Then you may create a project of your own.
 
 1. Set up
 2. Install some libraries
 3. Install some external programs
 4. How to launch the Reconnect project after installation
+5. Create a test project
 
 
 1. Set up
@@ -158,3 +159,37 @@ Note: on the automated launch process
 Personally, I have a gaming mouse with additional buttons, a combination of which launches the *start-dev-environment* script. Another one launches the *backup* script and yet another one launches the *close-all-windows*. This way, I can very quickly close down everything and restart any time I want.
 
 You should find a way to easily call the *start-dev-environment* and the *close-all-windows* scripts for a more convenient use.
+
+5. Create a test system
+-----------------------
+
+You can open the various modules of code of the project or you may create your own system of code. To do so, use the command:
+
+	(my-systems:create-system <system-name> :load t)
+
+Then... it's a bit manual from there. Create a lisp file to hold your code in the directory *<system-name>\* created in *c:\home\lisp\dev\*. It should begin with:
+
+	(in-package :<system-name>)
+
+In order to be recognized as a module of the system you have created, it has to be listed in the components property of the system definition located in the file *<system-name>.asd*. I indeed rely entirely on <a target="_blank" href="https://www.common-lisp.net/project/asdf/">ASDF</a> to manage code systems and their dependencies.
+
+Since the *create-system* command is so low level, none of the hierarchical cache has been updated. The easiest way to do that is to just restart. That's a good point to automate the calls to the *start-dev-environment* and the *close-all-windows* scripts: have you done it? It is super convenient to just have them at hand.
+
+Once your environment has restarted, you may go to <a target="_blank" href="http://localhost:9999/code-editor/editor">http://localhost:9999/code-editor/editor</a>, use Ctrl+1 to focus the input for opening module of code and type the name of the system you have created (the auto-complete will now recognize that name).
+
+In the editor, define some functions or macros. With the cursor on a *complete* definition, Alt+Right will open the usage editor. Say you have defined the function *foo*, you write usage that way:
+
+("Simple example"
+	(equal (foo "test")
+			<the-expected-result)
+	("With the optional argument informed"
+		(equal (foo "test" 1)
+			<the-expected-result)))
+("Special cases"
+	...)
+
+In short, a usage is a list of lists beginning with a documentation string with then holds tests or other lists beginning with a documentation string.
+
+To save modifications, use Ctrl+Q. The code will get recompiled and usages will be reverified. Try to code little problems like defined arguments that are not referenced in the body of the function or tests that will fail to see these issues being detected after having saved the modifications.
+
+The same shortcut, Ctrl+Q, will move the focus to the modules with issues if there is not any modification to be saved. On the associated watcher, you will have the full view debugged usages so as to understand exactly where things went wrong in your code.
