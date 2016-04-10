@@ -3,6 +3,12 @@ The Reconnect project
 
 This is the Reconnect project, aiming to better support myself during programming as my hobby.
 
+As of... a bit of time, I don't pursue this project anymore.
+Some limitations clearly appeared to me and the most fundamental ones revolved around... the core language itself.
+Thus my next project, Evolutionary, is about building a Lisp language  to adress those core issues.
+It will probably diverge in some hopefully interesting direction.
+
+
 It has the following things:
 - a little library for defining code systems
 - a dependency parser for Common Lisp code
