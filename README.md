@@ -9,7 +9,7 @@ Thus my next project, Evolutionary, is about building a Lisp language  to adress
 It will probably diverge in some hopefully interesting direction.
 
 
-It has the following things:
+The Reconnect project has the following things:
 - a little library for defining code systems
 - a dependency parser for Common Lisp code
 - a full view debugger for Common Lisp code
